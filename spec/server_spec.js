@@ -24,7 +24,7 @@ describe("the server", function() {
       });
 
       response.on('end', function () {
-        expect(body).toBe("welcome to sleep");
+        expect(body).toBe("welcome to sleep\n");
         done();
       });
     }).end();
