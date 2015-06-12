@@ -1,0 +1,23 @@
+{
+  "name": "event-calendar",
+  "version": "0.0.1",
+  "description": "a good event calendar",
+  "main": "index.js",
+  "dependencies": {
+    "jasmine": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uhlissuh/event-calendar.git"
+  },
+  "author": "Alissa Sobo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uhlissuh/event-calendar/issues"
+  },
+  "homepage": "https://github.com/uhlissuh/event-calendar"
+}
