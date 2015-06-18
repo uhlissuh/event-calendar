@@ -24,7 +24,7 @@ describe("the server", function() {
       });
 
       response.on('end', function () {
-        expect(body).toBe("welcome to sleep\n");
+        expect(body).toMatch(/June/);
         done();
       });
     }).end();

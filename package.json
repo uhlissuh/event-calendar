@@ -4,7 +4,9 @@
   "description": "a good event calendar",
   "main": "index.js",
   "dependencies": {
-    "jasmine": "^2.3.1"
+    "bootstrap": "3.3.4",
+    "jasmine": "^2.3.1",
+    "mustache": "^2.1.1"
   },
   "devDependencies": {},
   "scripts": {
