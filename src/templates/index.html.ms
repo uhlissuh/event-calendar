@@ -23,7 +23,7 @@
       {{#weeks}}
         <div class="row">
           {{#days}}
-            <div class="col-md-1">{{number}}</div>
+            <div class="col-md-1">{{dayOfMonth}}</div>
           {{/days}}
         </div>
       {{/weeks}}
