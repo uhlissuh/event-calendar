@@ -14,7 +14,16 @@ CalendarView.prototype.getWeeks = function() {
 
   for (var j = 0; j < 5; j++) {
     for (var i = 0; i < 7; i++) {
-      days.push({dayOfMonth: date.getDate()});
+      var day = {
+        dayOfMonth: date.getDate()
+      };
+      days.push(day);
+      if (date.getDate() === 15) {
+        day.events = [
+          {name: "Barf Party"},
+          {name: "Louisa's birthday"}
+        ];
+      }
       date.setDate(date.getDate() + 1);
     }
     weeks.push({days: days});

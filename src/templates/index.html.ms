@@ -23,7 +23,15 @@
       {{#weeks}}
         <div class="row">
           {{#days}}
-            <div class="col-md-1">{{dayOfMonth}}</div>
+            <div class="col-md-1">
+              {{dayOfMonth}}
+              <ul>
+                {{#events}}
+                <li>{{name}}</li>
+                {{/events}}
+              </ul>
+            </div>
+
           {{/days}}
         </div>
       {{/weeks}}
