@@ -24,7 +24,7 @@ describe("the server", function() {
       });
 
       response.on('end', function () {
-        expect(body).toMatch(/June/);
+        expect(body).toMatch(/July/);
         done();
       });
     }).end();
