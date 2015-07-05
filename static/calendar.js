@@ -10,6 +10,12 @@ saveEventButton.addEventListener("click", function() {
     method:"POST",
     success: function(data) {
       console.log(data);
+    },
+    data: {
+      name: name.value,
+      date: date.value,
+      location: location.value,
+      description: description.value
     }
   });
 });

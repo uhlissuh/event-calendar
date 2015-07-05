@@ -3,11 +3,15 @@ var fs = require("fs");
 var mustache = require("mustache");
 var CalendarView = require("./views/calendar_view");
 var express = require("express");
+var bodyParser = require("body-parser");
 
 var app = express();
 
+app.use(bodyParser.urlencoded());
+
 app.post("/events", function(req, res) {
   res.end("ok");
+  console.log(req.body);
 });
 
 app.get("/", function (req, res) {
