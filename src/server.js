@@ -4,14 +4,36 @@ var mustache = require("mustache");
 var CalendarView = require("./views/calendar_view");
 var express = require("express");
 var bodyParser = require("body-parser");
+var pg = require('pg');
+var conString = "postgres://alissa:@localhost/event_calendar";
+
+
 
 var app = express();
 
 app.use(bodyParser.urlencoded());
 
 app.post("/events", function(req, res) {
-  res.end("ok");
+
+
   console.log(req.body);
+
+  pg.connect(conString, function(err, client, done) {
+    if (err) {
+      return console.error("error fetching client from pool", err);
+    }
+    console.log("ok");
+
+    client.query(
+      "insert into events (name, time, location, description) values ($1, $2, $3, $4)",
+      [req.body.name, req.body.time, req.body.location, req.body.description],
+      function(err, result) {
+        console.log(err, result);
+        res.end("ok");
+        done();
+      }
+    );
+  });
 });
 
 app.get("/", function (req, res) {

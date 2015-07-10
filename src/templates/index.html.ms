@@ -50,7 +50,7 @@
             <div class="modal-body">
               <form id="event-form">
                 <input placeholder="Event Name" name="name"></input>
-                <input placeholder="MM/DD/YYYY" name="date"></input>
+                <input placeholder="MM/DD/YYYY" name="time"></input>
                 <input placeholder="Location" name="location"></input>
                 <textarea placeholder="Event Description" name="description"></textarea>
               </form>
