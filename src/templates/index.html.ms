@@ -24,21 +24,19 @@
       </div>
 
       {{#weeks}}
-        <div class="row">
+        <div class="row {{color}}">
           {{#days}}
             <div class="col-md-1">
               {{dayOfMonth}}
               <ul>
                 {{#events}}
-                <li>{{name}}</li>
+                  <li>{{name}}</li>
                 {{/events}}
               </ul>
             </div>
-
           {{/days}}
         </div>
       {{/weeks}}
-
 
       <div class="modal fade" id="new-event-modal" role="dialog">
         <div class="modal-dialog">

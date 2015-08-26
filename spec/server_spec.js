@@ -1,5 +1,6 @@
 var http = require("http");
 var server = require("../src/server");
+var queryString = require("querystring");
 
 describe("the server", function() {
   beforeEach(function(done) {
@@ -11,22 +12,54 @@ describe("the server", function() {
   });
 
   it("works", function(done) {
-    http.request({
+    loadMainPage(function(body) {
+      expect(body).toMatch(/August/);
+      done();
+    });
+  });
+
+  it("displays events that the user creates on the calendar", function(done) {
+    var req = http.request({
       host:"localhost",
       port: "8081",
-      path: "/"
+      path: "/events",
+      method: "POST",
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     },
-    function (response) {
-      var body = "";
-
-      response.on('data', function (chunk) {
-        body += chunk;
-      });
-
-      response.on('end', function () {
-        expect(body).toMatch(/July/);
+    function() {
+      loadMainPage(function(body) {
+        expect(body).toMatch(/tomatofest/);
         done();
-      });
-    }).end();
+      })
+    });
+
+    req.write(queryString.stringify({
+      name: "tomatofest",
+      time: "08/27/2015",
+      location: "fieldbrook",
+      description: "we will celebrate tomatoes"
+    }));
+
+    req.end();
   });
+
 });
+
+function loadMainPage(callback) {
+  http.request({
+    host:"localhost",
+    port: "8081",
+    path: "/"
+  },
+  function(response) {
+    var body = "";
+
+    response.on('data', function (chunk) {
+      body += chunk;
+    });
+
+    response.on('end', function () {
+      callback(body);
+    });
+  }).end();
+}

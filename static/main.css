@@ -9,3 +9,11 @@
 .month-title {
   display: inline;
 }
+
+.gray {
+  background-color: gray;
+}
+
+.blue {
+  background-color: blue;
+}
